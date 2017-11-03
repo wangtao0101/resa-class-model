@@ -12,7 +12,7 @@
             "stopOnEntry": false,
             "args": ["${fileBasenameNoExtension}", "--runInBand", "--no-cache"],
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": "build:dev",
+            "preLaunchTask": "build:debug",
             "runtimeExecutable": null,
             "runtimeArgs": [
                 "--nolazy"
@@ -23,7 +23,7 @@
             "console": "integratedTerminal",
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceRoot}/lib/**/*.js"
+                "${workspaceRoot}/lib/**/*"
             ] // 源映射，指定实际执行文件
         },
         {

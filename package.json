@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p . --sourceMap false",
-    "build:dev": "tsc -p .",
+    "build": "npm run clean && tsc -p . --sourceMap false",
+    "build:debug": "npm run clean && tsc -p .",
     "test": "jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clean": "rimraf lib"
   },
   "repository": {
     "type": "git",
@@ -22,14 +23,19 @@
   "devDependencies": {
     "@types/jest": "^21.1.5",
     "jest": "^21.2.1",
+    "rimraf": "^2.6.2",
     "ts-jest": "^21.1.4",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1"
   },
   "jest": {
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
+    "transform": {
+      "^.+\\.ts?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?)$",
     "moduleFileExtensions": [
-      "js"
+      "js",
+      "ts"
     ]
   },
   "dependencies": {
