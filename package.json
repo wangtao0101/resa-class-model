@@ -1,0 +1,38 @@
+{
+  "name": "resa-class-model",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p . --sourceMap false",
+    "build:dev": "tsc -p .",
+    "test": "jest",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangtao0101/resa-class-model.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangtao0101/resa-class-model/issues"
+  },
+  "homepage": "https://github.com/wangtao0101/resa-class-model#readme",
+  "devDependencies": {
+    "@types/jest": "^21.1.5",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.1.4",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "dependencies": {
+    "invariant": "^2.2.2"
+  }
+}
