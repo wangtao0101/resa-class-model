@@ -1,10 +1,10 @@
-// import invariant from 'invariant';
+import * as invariant from 'invariant';
 
 export default function (effect: string) {
-    // invariant(
-    //     ['takeEvery', 'takeLatest', 'throttle'].indexOf(effect) > -1,
-    //     'effect type should be takeEvery, takeLatest or throttle.'
-    // );
+    invariant(
+        ['takeEvery', 'takeLatest', 'throttle'].indexOf(effect) > -1,
+        'effect type should be takeEvery, takeLatest or throttle.'
+    );
 
     return (target, key: string, descriptor) => { // eslint-disable-line
         // invariant(
