@@ -2,7 +2,8 @@
   "name": "resa-class-model",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/src/index.js",
+  "typings": "types/index.d.ts",
   "scripts": {
     "build": "npm run clean && tsc -p . --sourceMap false",
     "build:debug": "npm run clean && tsc -p .",
@@ -36,7 +37,10 @@
     "moduleFileExtensions": [
       "js",
       "ts"
-    ]
+    ],
+    "moduleNameMapper": {
+      "resa-class-model": "<rootDir>/lib/src/index.js"
+    }
   },
   "dependencies": {
     "invariant": "^2.2.2"

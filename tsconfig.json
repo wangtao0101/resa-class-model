@@ -11,11 +11,16 @@
       "experimentalDecorators": true,
       "suppressImplicitAnyIndexErrors": true,
       "allowSyntheticDefaultImports": true,
-      "declaration": true,
+      "declaration": false,
       "strict": true,
       "removeComments": true,
       "noImplicitAny": false,
-      "sourceMap": true
+      "sourceMap": true,
+      "baseUrl": ".",
+      "paths": {
+        "resa-class-model": ["src/index.ts"]
+      },
+      "types": ["resa-class-model", "jest"]
     },
     "include": [
       "src/*.ts",
