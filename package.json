@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && tsc -p . --sourceMap false",
     "build:debug": "npm run clean && tsc -p .",
-    "test": "jest",
+    "test": "npm run build && jest",
     "tsc": "tsc",
     "clean": "rimraf lib"
   },
