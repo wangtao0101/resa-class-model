@@ -16,5 +16,5 @@ declare module 'resa-class-model' {
 
     export function wapper(cb: IterableIterator<0>): Promise<any>;
 
-    export function wapper(cb: (state, payload) => {}): (payload) => {}
+    export function wapper(cb: (state, payload?) => {}): (payload?) => {}
 }
