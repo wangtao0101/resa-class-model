@@ -1,4 +1,6 @@
 ///<reference path='../types/index.d.ts' />
+import * as clone from 'clone';
+
 export default class Model {
     constructor() {
         this['effects'] = this['__effects__'];
@@ -16,7 +18,7 @@ export default class Model {
             configurable: false,
         })
         Object.defineProperty(this, 'state', {
-            value: this.constructor['__state__'],
+            value: clone(this.constructor['__state__']),
             enumerable: true,
             writable: false,
             configurable: false,

@@ -1,7 +1,7 @@
 {
   "name": "resa-class-model",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "ES / TypeScript decorator for class-style resa model.",
   "main": "lib/src/index.js",
   "typings": "types/index.d.ts",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:debug": "npm run clean && tsc -p .",
     "test": "npm run build && jest",
     "tsc": "tsc",
-    "clean": "rimraf lib"
+    "clean": "rimraf lib",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
     "@types/jest": "^21.1.5",
     "immutable": "^3.8.2",
     "jest": "^21.2.1",
+    "react": "^16.0.0",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "resa": "^2.1.1",
     "rimraf": "^2.6.2",
     "ts-jest": "^21.1.4",
     "tslint": "^5.8.0",
@@ -44,6 +49,10 @@
     }
   },
   "dependencies": {
+    "clone": "^2.1.1",
     "invariant": "^2.2.2"
+  },
+  "peerDependencies": {
+    "resa": "^2.1.2"
   }
 }
