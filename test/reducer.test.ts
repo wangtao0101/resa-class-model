@@ -1,4 +1,4 @@
-import { Model, reducer } from 'resa-class-model';
+import { Model, reducer, wapper } from 'resa-class-model';
 
 describe('reducer decorator', () => {
     test('default', () => {
@@ -8,6 +8,7 @@ describe('reducer decorator', () => {
                 return state + 1;
             }
         }
+        const B = new A();
         expect(A.prototype['__reducers__'].add(0)).toEqual(1);
     });
 });
