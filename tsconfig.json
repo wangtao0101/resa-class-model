@@ -19,8 +19,7 @@
       "baseUrl": ".",
       "paths": {
         "resa-class-model": ["src/index.ts"]
-      },
-      "types": ["resa-class-model", "jest"]
+      }
     },
     "include": [
       "src/*.ts",

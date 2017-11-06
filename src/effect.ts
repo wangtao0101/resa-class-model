@@ -6,7 +6,7 @@ export default function (effect: string = 'takeEvery', ms: number = 200) {
         'effect type should be takeEvery, takeLatest or throttle.'
     );
 
-    return (target, key: string, descriptor) => {
+    return (target, key: string, descriptor: PropertyDescriptor) => {
         invariant(
             Object.prototype.toString.call(descriptor.value) === "[object GeneratorFunction]"
             /** some transfor(typescript) may not realize GeneratorFunction */
@@ -17,11 +17,11 @@ export default function (effect: string = 'takeEvery', ms: number = 200) {
             Object.defineProperty(target, '__effects__', {
                 value: {},
                 enumerable: false,
-                writable: true,
-                configurable: true,
+                writable: false,
+                configurable: false,
             })
         }
         target.__effects__[key] = [descriptor.value, effect, ms];
-        return descriptor;
     };
 }
+

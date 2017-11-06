@@ -23,6 +23,7 @@
   "homepage": "https://github.com/wangtao0101/resa-class-model#readme",
   "devDependencies": {
     "@types/jest": "^21.1.5",
+    "immutable": "^3.8.2",
     "jest": "^21.2.1",
     "rimraf": "^2.6.2",
     "ts-jest": "^21.1.4",
