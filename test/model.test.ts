@@ -70,7 +70,6 @@ describe('Model test use resa', () => {
     test('register model success', () => {
         const app = createResa();
         app.registerModel(new MyModel());
-        new MyModel().add()
         expect(app.models.model).toEqual(expect.objectContaining({
             name: 'model',
             reducerName: 'reducer',
@@ -101,7 +100,8 @@ describe('Model test use resa', () => {
     test('dispatch return promise resolve success', () => {
         const app = createResa();
         app.registerModel(new MyModel());
-        return app.models.model.delayAdd({ a: 'a' })
+        const model: MyModel = app.models.model;
+        return wapper(model.delayAdd({ a: 'a' }))
             .then((data) => {
                 expect(data).toEqual(5);
             });
