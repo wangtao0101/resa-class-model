@@ -13,3 +13,4 @@ jsconfig.json
 yarn.lock
 coverage
 lib/test
+img

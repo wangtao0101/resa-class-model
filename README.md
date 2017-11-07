@@ -87,3 +87,11 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 ```
+
+### IntelliSense
+
+In model
+![GitHub Logo](https://github.com/wangtao0101/resa-class-model/blob/master/img/inmodel.png?raw=true)
+
+In view
+![GitHub Logo](https://github.com/wangtao0101/resa-class-model/blob/master/img/inview.png?raw=true)
