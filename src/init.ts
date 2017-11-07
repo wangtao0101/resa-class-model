@@ -30,7 +30,7 @@ export default function (options) {
             configurable: false,
         })
         Object.defineProperty(target, '__state__', {
-            value: state || getEmptyObject(immutable),
+            value: state,
             enumerable: false,
             writable: false,
             configurable: false,

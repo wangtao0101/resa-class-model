@@ -2,7 +2,7 @@ import { Model, init } from 'resa-class-model';
 
 describe('init decorator', () => {
     test('default parameter', () => {
-        @init()
+        @init({state : {}})
         class A extends Model{
         }
         expect(A['__name__']).toEqual('A');
@@ -12,7 +12,7 @@ describe('init decorator', () => {
     });
 
     test('name parameter', () => {
-        @init({ name: 'ccc' })
+        @init({ name: 'ccc', state : {} })
         class A extends Model{
         }
         expect(A['__name__']).toEqual('ccc');
@@ -22,7 +22,7 @@ describe('init decorator', () => {
     });
 
     test('reducer parameter', () => {
-        @init({ name: 'ccc', reducer: 'aaa' })
+        @init({ name: 'ccc', reducer: 'aaa', state : {} })
         class A extends Model{
         }
         expect(A['__name__']).toEqual('ccc');

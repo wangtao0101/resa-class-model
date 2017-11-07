@@ -5,7 +5,7 @@ import createResa from 'resa';
 
 describe('Model test', () => {
     test('default Model', () => {
-        @init()
+        @init({ state: 0})
         class A extends Model{
             @effect()
             * add() {
@@ -153,6 +153,34 @@ describe('Model test use resa', () => {
             expect(data).toEqual({
                 count: 9,
             });
+        });
+    });
+});
+
+@init({
+    name: 'model',
+    reducer: 'reducer',
+    state : 0
+})
+class OtherModel extends Model{
+    @effect()
+    * add(count) {
+        yield call(this.fulfilled, this.state + count);
+    }
+}
+
+describe('non object state', () => {
+    test('non object state', () => {
+        const B = new OtherModel();
+        const app = createResa();
+        app.registerModel(B);
+        app.models.model.add(3);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(app.models.model.state);
+            }, 20);
+        }).then((data) => {
+            expect(data).toEqual(3);
         });
     });
 });
