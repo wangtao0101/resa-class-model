@@ -4,11 +4,11 @@ describe('reducer decorator', () => {
     test('default', () => {
         class A extends Model{
             @reducer()
-            add(state) {
-                return state + 1;
+            add(payload) {
+                return this.state + 1;
             }
         }
         const B = new A();
-        expect(A.prototype['__reducers__'].add(0)).toEqual(1);
+        expect(A.prototype['__reducers__'].add).not.toBeUndefined();
     });
 });

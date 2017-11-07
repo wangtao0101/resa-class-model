@@ -13,8 +13,8 @@ describe('Model test', () => {
             }
 
             @reducer()
-            minus(state) {
-                return state - 1;
+            minus(payload) {
+                return payload - 1;
             }
         }
         const B = new A();
@@ -38,7 +38,7 @@ class MyModel extends Model{
     * delayAdd(payload) {
         yield call(this.fulfilled, payload);
         yield delay(10);
-        this.add(0);
+        this.add();
         return 5;
     }
 
@@ -46,13 +46,18 @@ class MyModel extends Model{
     * count(payload) {
         yield delay(10);
         yield call(this.fulfilled, {
-            count: this.getState().count + 1,
+            count: this.state.count + 1,
         });
     }
 
+    @effect()
+    * mul(a, b) {
+        yield call(this.fulfilled, { count: a * b });
+    }
+
     @reducer()
-    add(state) {
-        return state + 1;
+    add() {
+        return this.state.count + 1;
     }
 }
 
@@ -60,6 +65,7 @@ describe('Model test use resa', () => {
     test('register model success', () => {
         const app = createResa();
         app.registerModel(new MyModel());
+        new MyModel().add()
         expect(app.models.model).toEqual(expect.objectContaining({
             name: 'model',
             reducerName: 'reducer',
@@ -103,11 +109,26 @@ describe('Model test use resa', () => {
         app.models.model.count();
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve(app.models.model.getState());
+                resolve(app.models.model.state);
             }, 20);
         }).then((data) => {
             expect(data).toEqual({
                 count: 1,
+            });
+        });
+    });
+
+    test('multiple args', () => {
+        const app = createResa();
+        app.registerModel(new MyModel());
+        app.models.model.mul(2, 4);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(app.models.model.state);
+            }, 20);
+        }).then((data) => {
+            expect(data).toEqual({
+                count: 8,
             });
         });
     });

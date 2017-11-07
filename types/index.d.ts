@@ -1,6 +1,6 @@
 declare module 'resa-class-model' {
     export class Model {
-        getState(): any;
+        state: any;
         fulfilled(payload?: Object): void;
         reject(payload?: Object): void;
     }
@@ -15,6 +15,4 @@ declare module 'resa-class-model' {
     export function init() : ClassDecorator;
 
     export function wapper(cb: IterableIterator<0>): Promise<any>;
-
-    export function wapper(cb: (state, payload?) => {}): (payload?) => {}
 }
