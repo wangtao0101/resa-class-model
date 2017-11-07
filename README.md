@@ -3,7 +3,7 @@
 ## ES / TypeScript decorator for class-style resa model.
 
 
-### Example
+### [Example](https://github.com/wangtao0101/resa-example)
 ```
 // App.tsx
 import AppModel from './AppModel';
