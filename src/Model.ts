@@ -5,6 +5,7 @@ export default class Model {
     constructor() {
         this['effects'] = this['__effects__'];
         this['reducers'] = this['__reducers__'];
+        this['pureReducers'] = this['__pureReducers__'];
         Object.defineProperty(this, 'name', {
             value: this.constructor['__name__'],
             enumerable: true,

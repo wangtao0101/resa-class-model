@@ -7,7 +7,7 @@ declare module 'resa-class-model' {
 
     export function effect(string?, number?) : MethodDecorator;
 
-    export function reducer() : MethodDecorator;
+    export function reducer(pure?: boolean) : MethodDecorator;
 
     export function init({ name, reducer, state }
         : { name?: string, reducer?: string, state?: Object}) : ClassDecorator;

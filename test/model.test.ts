@@ -59,6 +59,11 @@ class MyModel extends Model{
     add() {
         return this.state.count + 1;
     }
+
+    @reducer(true)
+    ['pure'](state, action) {
+        return Object.assign({}, state, {count : state.count + action.payload});
+    }
 }
 
 describe('Model test use resa', () => {
@@ -129,6 +134,24 @@ describe('Model test use resa', () => {
         }).then((data) => {
             expect(data).toEqual({
                 count: 8,
+            });
+        });
+    });
+
+    test('pure reducer', () => {
+        const app = createResa();
+        app.registerModel(new MyModel());
+        app.store.dispatch({
+            type: 'pure',
+            payload: 9,
+        });
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(app.models.model.state);
+            }, 20);
+        }).then((data) => {
+            expect(data).toEqual({
+                count: 9,
             });
         });
     });
