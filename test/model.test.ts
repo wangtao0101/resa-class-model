@@ -184,3 +184,37 @@ describe('non object state', () => {
         });
     });
 });
+
+@init({
+    name: 'xxModel',
+    reducer: 'reducer',
+    state : 0
+})
+class xxModel extends Model{
+    models: {
+        model: OtherModel,
+    }
+
+    @effect()
+    * add(count: number) {
+        this.models.model.add(count + 5);
+    }
+}
+
+describe('inject othermodel in model', () => {
+    test('run success', () => {
+        const other = new OtherModel();
+        const xx = new xxModel();
+        const app = createResa();
+        app.registerModel(other);
+        app.registerModel(xx);
+        app.models.xxModel.add(3);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(app.models.model.state);
+            }, 100);
+        }).then((data) => {
+            expect(data).toEqual(8);
+        });
+    });
+});

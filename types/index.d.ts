@@ -1,5 +1,6 @@
 declare module 'resa-class-model' {
     export class Model {
+        protected models: any
         state: any;
         fulfilled(payload?: Object): void;
         reject(payload?: Object): void;
