@@ -10,7 +10,10 @@
     "test": "npm run build && jest",
     "tsc": "tsc",
     "clean": "rimraf lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "coverage": "jest --coverage",
+    "report": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
+    "coveralls": "npm run coverage && npm run report"
   },
   "repository": {
     "type": "git",
@@ -24,8 +27,10 @@
   "homepage": "https://github.com/wangtao0101/resa-class-model#readme",
   "devDependencies": {
     "@types/jest": "^21.1.5",
+    "coveralls": "^3.0.0",
     "immutable": "^3.8.2",
     "jest": "^21.2.1",
+    "nyc": "^11.3.0",
     "react": "^16.0.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",

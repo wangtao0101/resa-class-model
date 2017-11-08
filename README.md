@@ -1,5 +1,9 @@
 # resa-class-model
 
+[![NPM version](https://img.shields.io/npm/v/resa-class-model.svg?style=flat)](https://www.npmjs.com/package/resa-class-model)
+[![Build Status](https://img.shields.io/travis/wangtao0101/resa-class-model.svg?style=flat)](https://travis-ci.org/wangtao0101/resa-class-model)
+[![Coverage Status](https://coveralls.io/repos/github/wangtao0101/resa-class-model/badge.svg?branch=master&dummy=no_cache_please_1)](https://coveralls.io/github/wangtao0101/resa-class-model?branch=master)
+
 ## ES / TypeScript decorator for class-style resa model.
 
 
