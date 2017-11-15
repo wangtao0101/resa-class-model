@@ -1,6 +1,6 @@
 {
   "name": "resa-class-model",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "ES / TypeScript decorator for class-style resa model.",
   "main": "lib/src/index.js",
   "typings": "types/index.d.ts",
