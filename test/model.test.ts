@@ -36,7 +36,7 @@ describe('Model test', () => {
 class MyModel extends Model{
     @effect()
     * delayAdd(payload) {
-        yield call(this.fulfilled, payload);
+        this.fulfilled(payload);
         yield delay(10);
         this.add();
         return 5;
@@ -45,14 +45,14 @@ class MyModel extends Model{
     @effect('takeLatest')
     * count(payload) {
         yield delay(10);
-        yield call(this.fulfilled, {
+        this.fulfilled({
             count: this.state.count + 1,
         });
     }
 
     @effect()
     * mul(a, b) {
-        yield call(this.fulfilled, { count: a * b });
+        this.fulfilled({ count: a * b });
     }
 
     @reducer()
@@ -165,7 +165,7 @@ describe('Model test use resa', () => {
 class OtherModel extends Model{
     @effect()
     * add(count) {
-        yield call(this.fulfilled, this.state + count);
+        this.fulfilled(this.state + count);
     }
 }
 
