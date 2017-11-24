@@ -40,7 +40,7 @@ interface MyModelState {
 class MyModel extends Model<MyModelState>{
     @effect()
     * delayAdd(payload) {
-        yield call(this.fulfilled, payload);
+        this.fulfilled(payload);
         yield delay(10);
         this.add();
         return 5;
@@ -49,14 +49,14 @@ class MyModel extends Model<MyModelState>{
     @effect('takeLatest')
     * count(payload) {
         yield delay(10);
-        yield call(this.fulfilled, {
+        this.fulfilled({
             count: this.state.count + 1,
         });
     }
 
     @effect()
     * mul(a, b) {
-        yield call(this.fulfilled, { count: a * b });
+        this.fulfilled({ count: a * b });
     }
 
     @effect()
@@ -177,8 +177,8 @@ type NumState = number;
 })
 class OtherModel extends Model<NumState> {
     @effect()
-    * add(count: number) {
-        yield call(this.fulfilled, this.state + count);
+    * add(count) {
+        this.fulfilled(this.state + count);
     }
 }
 
