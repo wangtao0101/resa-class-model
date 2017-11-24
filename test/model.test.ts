@@ -26,14 +26,18 @@ describe('Model test', () => {
     });
 });
 
-@init({
+interface MyModelState {
+    count: number;
+}
+
+@init<MyModelState>({
     name: 'model',
     reducer: 'reducer',
     state : {
         count: 0,
     }
 })
-class MyModel extends Model{
+class MyModel extends Model<MyModelState>{
     @effect()
     * delayAdd(payload) {
         yield call(this.fulfilled, payload);
@@ -53,6 +57,13 @@ class MyModel extends Model{
     @effect()
     * mul(a, b) {
         yield call(this.fulfilled, { count: a * b });
+    }
+
+    @effect()
+    * testGe(a, b) {
+        this.fulfilled({
+            count: 0,
+        })
     }
 
     @reducer()
@@ -157,14 +168,16 @@ describe('Model test use resa', () => {
     });
 });
 
+type NumState = number;
+
 @init({
     name: 'model',
     reducer: 'reducer',
     state : 0
 })
-class OtherModel extends Model{
+class OtherModel extends Model<NumState> {
     @effect()
-    * add(count) {
+    * add(count: number) {
         yield call(this.fulfilled, this.state + count);
     }
 }
@@ -190,7 +203,7 @@ describe('non object state', () => {
     reducer: 'reducer',
     state : 0
 })
-class xxModel extends Model{
+class xxModel extends Model<NumState>{
     models: {
         model: OtherModel,
     }
