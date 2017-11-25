@@ -20,17 +20,34 @@ interface MyModelState {
 class MyModel extends Model<MyModelState>{
     @effect()
     * delayAdd() {
+        /**
+         * type check
+         */
         this.fulfilled({
             count: 1,
         })
         this.add();
+        this.minus();
     }
 
     @reducer()
     add(): MyModelState {
+        /**
+         * type check
+         */
         return {
             count: this.state.count + 1,
         };
+    }
+
+    /**
+     * user spread replacing Object.assign to get type check
+     */
+    @reducer()
+    minus(): MyModelState {
+        return {...{
+            count: this.state.count + 1,
+        }};
     }
 }
 
