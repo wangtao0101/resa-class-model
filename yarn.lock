@@ -2337,9 +2337,9 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/require-main-filename/download/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
-resa@3.0.0-rc.1:
-  version "3.0.0-rc.1"
-  resolved "http://registry.npm.taobao.org/resa/download/resa-3.0.0-rc.1.tgz#f17c304d95c4dd08cd0a2142a9c3c437633aaf27"
+resa@3.0.0-rc.2:
+  version "3.0.0-rc.2"
+  resolved "http://registry.npm.taobao.org/resa/download/resa-3.0.0-rc.2.tgz#d37ed77e4009e4dd05c5b663a819de818d4f8095"
   dependencies:
     clone "^2.1.1"
     invariant "^2.2.2"
