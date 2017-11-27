@@ -11,8 +11,8 @@ declare module 'resa-class-model' {
 
     export function reducer(pure?: boolean) : MethodDecorator;
 
-    export function init<S = any>({ name, reducer, state }
-        : { name?: string, reducer?: string, state: S}) : ClassDecorator;
+    export function init<S = any>({ name, state }
+        : { name?: string, state: S}) : ClassDecorator;
 
     export function wapper(cb: IterableIterator<any>): Promise<any>;
 }

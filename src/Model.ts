@@ -12,12 +12,6 @@ export default class Model {
             writable: false,
             configurable: false,
         })
-        Object.defineProperty(this, 'reducerName', {
-            value: this.constructor['__reducer__'],
-            enumerable: true,
-            writable: false,
-            configurable: false,
-        })
         Object.defineProperty(this, 'state', {
             value: clone(this.constructor['__state__']),
             enumerable: true,

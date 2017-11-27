@@ -11,9 +11,7 @@ export default function (options) {
     options = options || {};
     const {
         name,
-        reducer,
         state,
-        immutable
     } = options;
 
     return (target) => {
@@ -23,20 +21,8 @@ export default function (options) {
             writable: false,
             configurable: false,
         })
-        Object.defineProperty(target, '__reducer__', {
-            value: reducer || target.__name__,
-            enumerable: false,
-            writable: false,
-            configurable: false,
-        })
         Object.defineProperty(target, '__state__', {
             value: state,
-            enumerable: false,
-            writable: false,
-            configurable: false,
-        })
-        Object.defineProperty(target, '__immutable__', {
-            value: immutable,
             enumerable: false,
             writable: false,
             configurable: false,

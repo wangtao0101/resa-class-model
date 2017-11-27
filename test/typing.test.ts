@@ -12,7 +12,6 @@ interface MyModelState {
 
 @init<MyModelState>({
     name: 'model',
-    reducer: 'reducer',
     state: {
         count: 0,
     }

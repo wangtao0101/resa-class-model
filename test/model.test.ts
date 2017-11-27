@@ -19,7 +19,6 @@ describe('Model test', () => {
         }
         const B = new A();
         expect(B['name']).toEqual('A');
-        expect(B['reducerName']).toEqual('A');
         expect(Object.prototype.toString.call(B['effects'].add[0])).toEqual('[object Function]')
         expect(B['effects'].add[1]).toEqual('takeEvery');
         expect(B['reducers'].minus(1)).toEqual(0);
@@ -32,7 +31,6 @@ interface MyModelState {
 
 @init<MyModelState>({
     name: 'model',
-    reducer: 'reducer',
     state : {
         count: 0,
     }
@@ -83,7 +81,6 @@ describe('Model test use resa', () => {
         app.registerModel(new MyModel());
         expect(app.models.model).toEqual(expect.objectContaining({
             name: 'model',
-            reducerName: 'reducer',
             delayAdd: expect.anything(),
             add: expect.anything(),
         }));
@@ -100,7 +97,7 @@ describe('Model test use resa', () => {
         }).then((data) => {
             expect(data).toEqual({
                 resaReducer: {},
-                reducer: {
+                model: {
                     a: 'a',
                     count: 0,
                 },
@@ -172,7 +169,6 @@ type NumState = number;
 
 @init({
     name: 'model',
-    reducer: 'reducer',
     state : 0
 })
 class OtherModel extends Model<NumState> {
@@ -200,7 +196,6 @@ describe('non object state', () => {
 
 @init({
     name: 'xxModel',
-    reducer: 'reducer',
     state : 0
 })
 class xxModel extends Model<NumState>{
