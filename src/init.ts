@@ -1,12 +1,3 @@
-import invariant from 'invariant';
-
-function getEmptyObject(immutable) {
-    if (immutable) {
-        return immutable.Map();
-    }
-    return {};
-}
-
 export default function (options) {
     options = options || {};
     const {
