@@ -3,7 +3,7 @@ declare module 'resa-class-model' {
     export class Model<S = any> {
         protected models: any
         state: S;
-        fulfilled(payload?: Partial<S>): void;
+        fulfilled(payload?: Partial<S>): S;
         reject(payload?: Partial<S>): void;
     }
 

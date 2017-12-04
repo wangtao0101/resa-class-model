@@ -1,6 +1,6 @@
 {
   "name": "resa-class-model",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "ES / TypeScript decorator for class-style resa model.",
   "main": "lib/src/index.js",
   "typings": "types/index.d.ts",
@@ -34,7 +34,7 @@
     "react": "^16.0.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
-    "resa": "3.0.0-rc.2",
+    "resa": "3.0.0-rc.7",
     "rimraf": "^2.6.2",
     "ts-jest": "^21.1.4",
     "tslint": "^5.8.0",
@@ -58,6 +58,6 @@
     "invariant": "^2.2.2"
   },
   "peerDependencies": {
-    "resa": "^3.0.0-rc.2"
+    "resa": "^3.0.0-rc.7"
   }
 }

@@ -66,7 +66,14 @@ class MyModel extends Model<MyModelState>{
 
     @reducer()
     add() {
-        return this.state.count + 1;
+        return {
+            count: this.state.count + 1,
+        }
+    }
+
+    @reducer()
+    ful(payload: Object): MyModelState {
+        return this.fulfilled(payload);
     }
 
     @reducer(true)
@@ -142,6 +149,25 @@ describe('Model test use resa', () => {
         }).then((data) => {
             expect(data).toEqual({
                 count: 8,
+            });
+        });
+    });
+
+    test('test fullfilled in reducer', () => {
+        const app = createResa();
+        app.registerModel(new MyModel());
+        const model: MyModel = app.models.model;
+        model.ful({ a: 'a'});
+        model.ful({ b: 'b'});
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(model.state);
+            }, 20);
+        }).then((data) => {
+            expect(data).toEqual({
+                count: 0,
+                a: 'a',
+                b: 'b',
             });
         });
     });

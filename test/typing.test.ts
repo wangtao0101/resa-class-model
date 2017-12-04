@@ -48,6 +48,13 @@ class MyModel extends Model<MyModelState>{
             count: this.state.count + 1,
         }};
     }
+
+    @reducer()
+    ful() {
+        return this.fulfilled({
+            count: 0,
+        });
+    }
 }
 
 describe('plain state typing success', () => {
