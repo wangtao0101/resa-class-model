@@ -1,11 +1,6 @@
 import * as invariant from 'invariant';
 
 export default function (effect: string = 'takeEvery', ms: number = 200) {
-    invariant(
-        ['takeEvery', 'takeLatest', 'throttle'].indexOf(effect) > -1,
-        'effect type should be takeEvery, takeLatest or throttle.'
-    );
-
     return (target, key: string, descriptor: PropertyDescriptor) => {
         invariant(
             Object.prototype.toString.call(descriptor.value) === "[object GeneratorFunction]"
