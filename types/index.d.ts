@@ -7,7 +7,7 @@ declare module 'resa-class-model' {
         reject(payload?: Partial<S>): void;
     }
 
-    export function effect(string?, number?) : MethodDecorator;
+    export function effect(name?: string , mn?: number) : MethodDecorator;
 
     export function reducer(pure?: boolean) : MethodDecorator;
 
